@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"Sprite2",
-    "path":"sprites/Sprite2/Sprite2.yy",
+    "name":"sLevel1",
+    "path":"sprites/sLevel1/sLevel1.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
