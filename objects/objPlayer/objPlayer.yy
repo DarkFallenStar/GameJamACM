@@ -10,8 +10,8 @@
   "name":"objPlayer",
   "overriddenProperties":[],
   "parent":{
-    "name":"GameJamACM",
-    "path":"GameJamACM.yyp",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
