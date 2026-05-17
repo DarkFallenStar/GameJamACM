@@ -5,7 +5,7 @@ xSpeedLimit = 8
 ySpeed = 0
 jumpStr = 8
 accel = 1
-grav = 0.2
+grav = 0.3
 allTiles = [floorTiles,wallTiles]
 lockedMvt = 0
-
+death = false

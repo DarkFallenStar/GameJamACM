@@ -7,6 +7,14 @@ keyJumpLet = keyboard_check_released(vk_space)
 
 //Movement calc
 moveDir = KeyRight-keyLeft
+if death{
+    moveDir = 0
+    xSpeed *= accel
+    keyJumpLet = false
+    if image_blend = c_gray{
+        exit
+    }
+}
 
 xSpeed += moveDir * accel
 
@@ -19,6 +27,7 @@ if (lockedMvt <= 0){
     if onWall != 0 and keyJumpPress{
         ySpeed -= jumpStr/1.5
         lockedMvt = 15
+        audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
     }
 }
 
@@ -28,14 +37,15 @@ if ySpeed > 0 {
     grav = 0.5
 }
 else{
-    grav = 0.2
+    grav = 0.3
 }
 
 ySpeed += grav
 
 //Jump
-if (place_meeting(x, y+1, allTiles)) and (keyJumpHold){
+if (place_meeting(x, y+1, allTiles)) and (keyJumpHold) and !death{
     ySpeed -= jumpStr
+    audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
 }
 if keyJumpLet and ySpeed<0{
     ySpeed = 0
@@ -49,7 +59,7 @@ if (place_meeting(x+xSpeed, y, allTiles))
     }
     if (moveDir != 0)and ySpeed > 0{
         if onWall{
-            ySpeed /= 1.5
+            ySpeed /= 4
         }
     }
         xSpeed = 0
@@ -63,9 +73,14 @@ if (place_meeting(x, y+ySpeed, allTiles))
         y += sign(ySpeed);
     }
     ySpeed = 0 
+    if death{
+        xSpeed = 0
+    }
 }
 
 //Slowing
+if !death{
+
 if (!keyLeft and !KeyRight) {
     xSpeed += -xSpeed * accel
 }
@@ -74,13 +89,12 @@ if keyLeft and (xSpeed>0) {
 }
 if KeyRight and xSpeed<0 {
     xSpeed += -xSpeed * accel
-}
-
-if (x > window_get_width()){
-    x = 0
+}    
 }
 
 //Movement update
+
+
 x += xSpeed
 y += ySpeed
 
@@ -107,6 +121,8 @@ if onWall != 0{
     image_xscale = -sign(onWall)
 }
 
-if !visible{
-    moveDir = 0
+if death{
+    sprite_index = sPlayerDeath
 }
+
+

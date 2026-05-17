@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"objBase",
+  "%Name":"objExitDoor",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objBase",
+  "name":"objExitDoor",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sDoor",
-    "path":"sprites/sDoor/sDoor.yy",
+    "name":"sDoorExit",
+    "path":"sprites/sDoorExit/sDoorExit.yy",
   },
   "spriteMaskId":null,
   "visible":true,
