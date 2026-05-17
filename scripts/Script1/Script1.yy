@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Script1",
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"GameJamACM",
+    "path":"GameJamACM.yyp",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

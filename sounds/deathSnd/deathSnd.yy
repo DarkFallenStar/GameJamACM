@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"deathSnd",
   "parent":{
-    "name":"Music",
-    "path":"folders/Music.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

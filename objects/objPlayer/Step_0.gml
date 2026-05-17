@@ -12,6 +12,7 @@ if death{
     xSpeed *= accel
     keyJumpLet = false
     if image_blend = c_gray{
+        currentPlayer = instance_id_get(self)
         exit
     }
 }
@@ -24,9 +25,11 @@ lockedMvt = max(lockedMvt-1,0)
 var onWall = place_meeting(x-1, y, wallTiles) - place_meeting(x+1, y, wallTiles);
 
 if (lockedMvt <= 0){
+    image_index = 1
     if onWall != 0 and keyJumpPress{
         ySpeed -= jumpStr/1.5
         lockedMvt = 15
+        image_index = 2
         audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
     }
 }
@@ -124,5 +127,4 @@ if onWall != 0{
 if death{
     sprite_index = sPlayerDeath
 }
-
 
