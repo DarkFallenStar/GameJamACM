@@ -1,18 +1,18 @@
 {
   "$GMSound":"v2",
-  "%Name":"deathSE",
+  "%Name":"deathSnd",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
   "channelFormat":0,
-  "compression":0,
+  "compression":1,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.1493877,
+  "duration":1.104331,
   "exportDir":"",
-  "name":"deathSE",
+  "name":"deathSnd",
   "parent":{
     "name":"Music",
     "path":"folders/Music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"deathSE.wav",
+  "soundFile":"deathSnd.wav",
   "volume":1.0,
 }
