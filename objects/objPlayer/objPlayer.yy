@@ -40,8 +40,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlayerRun",
-    "path":"sprites/sPlayerRun/sPlayerRun.yy",
+    "name":"sPlayerIdle",
+    "path":"sprites/sPlayerIdle/sPlayerIdle.yy",
   },
   "spriteMaskId":{
     "name":"sPlayerIdle",

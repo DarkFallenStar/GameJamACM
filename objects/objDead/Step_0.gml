@@ -4,4 +4,3 @@ if !created{
     image_blend = c_gray
     created = true
 }
-

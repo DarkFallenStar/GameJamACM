@@ -1,16 +1,16 @@
-timer++
 //Inputs
+if visible{
+    timer++
 var keyUp = keyboard_check_pressed(ord("W")) or keyboard_check_pressed(ord("A")) 
             or keyboard_check_pressed(vk_up) or keyboard_check_pressed(vk_left)
 
 var KeyDown = keyboard_check_pressed(ord("S")) or keyboard_check_pressed(ord("D")) 
             or keyboard_check_pressed(vk_down) or keyboard_check_pressed(vk_right)
 
-var KeySelectPres = keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_enter)
+KeySelectPres = keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_enter)
 var KeySelectRel = keyboard_check_released(vk_space) or keyboard_check_released(vk_enter)
 
 var move = KeyDown - keyUp
-
 if move != 0 and !select{
     index += move
     
@@ -41,17 +41,22 @@ for (var i = 0; i < array_length(menuBtn); i++) {
                 
                 case 1:
                     //Settings
+                    
+                    objMenuSett.open = true
+                    visible = false
+                    
                     break 
+                    
+                    
                 case 2:
                     //Exit
                     game_end()
                     break 
             }
         }
-        if KeySelectRel{
+        else{
             menuBtn[index].image_blend = c_white
         }
-
         
     }
     else{
@@ -59,4 +64,4 @@ for (var i = 0; i < array_length(menuBtn); i++) {
         btnSel.image_yscale = max(btnSel.image_yscale - 0.5, 3)
     }
         
-}
+}}

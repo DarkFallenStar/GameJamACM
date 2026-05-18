@@ -1,11 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"objStartBtn",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"objExitSett",
+  "eventList":[],
   "managed":true,
-  "name":"objStartBtn",
+  "name":"objExitSett",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sBtn",
-    "path":"sprites/sBtn/sBtn.yy",
+    "name":"sBox",
+    "path":"sprites/sBox/sBox.yy",
   },
   "spriteMaskId":null,
   "visible":true,
