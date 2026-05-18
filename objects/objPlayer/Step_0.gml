@@ -1,9 +1,9 @@
 //Inputs
-keyLeft = keyboard_check(ord("A"))
-KeyRight = keyboard_check(ord("D"))
-keyJumpPress = keyboard_check_pressed(vk_space)
-keyJumpHold = keyboard_check(vk_space)
-keyJumpLet = keyboard_check_released(vk_space)
+keyLeft = keyboard_check(ord("A")) or keyboard_check(vk_left)
+KeyRight = keyboard_check(ord("D")) or keyboard_check(vk_right)
+keyJumpPress = keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_up)
+keyJumpHold = keyboard_check(vk_space) or keyboard_check(vk_up)
+keyJumpLet = keyboard_check_released(vk_space) or keyboard_check_released(vk_up)
 
 //Movement calc
 moveDir = KeyRight-keyLeft
@@ -11,36 +11,23 @@ if death{
     moveDir = 0
     xSpeed *= accel
     keyJumpLet = false
-    if image_blend = c_gray{
-        currentPlayer = instance_id_get(self)
-        exit
-    }
 }
+//Wall jump
+onWall = place_meeting(x-1, y, wallTiles) - place_meeting(x+1, y, wallTiles);
 
 xSpeed += moveDir * accel
 
 lockedMvt = max(lockedMvt-1,0)
 
-//Wall jump
-var onWall = place_meeting(x-1, y, wallTiles) - place_meeting(x+1, y, wallTiles);
 
-if (lockedMvt <= 0){
-    image_index = 1
-    if onWall != 0 and keyJumpPress{
-        ySpeed -= jumpStr/1.5
-        lockedMvt = 15
-        image_index = 2
-        audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
-    }
-}
 
 xSpeed = clamp(xSpeed, -xSpeedLimit, xSpeedLimit)
 
 if ySpeed > 0 {
-    grav = 0.5
+    grav = gravDown
 }
 else{
-    grav = 0.3
+    grav = gravUp
 }
 
 ySpeed += grav
@@ -55,18 +42,18 @@ if keyJumpLet and ySpeed<0{
 }
 
 //Horizontal Collisions
-if (place_meeting(x+xSpeed, y, allTiles))
+if (place_meeting(x+xSpeed, y, allTiles)){
 {
     while(!place_meeting(x+sign(xSpeed), y, allTiles)) {
         x += sign(xSpeed);
     }
-    if (moveDir != 0)and ySpeed > 0{
-        if onWall{
-            ySpeed /= 4
+    if onWall !=0 and ySpeed>0{
+            ySpeed /= 2
         }
     }
         xSpeed = 0
 }
+x += xSpeed
 
 //Vertical Collisions
 
@@ -78,6 +65,18 @@ if (place_meeting(x, y+ySpeed, allTiles))
     ySpeed = 0 
     if death{
         xSpeed = 0
+    }
+}
+
+
+
+if (lockedMvt <= 0){
+    image_index = 1
+    if onWall != 0 and keyJumpPress and (keyLeft or KeyRight){
+        ySpeed -= jumpStr/1.2
+        lockedMvt = 15
+        image_index = 2
+        audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
     }
 }
 
@@ -96,9 +95,6 @@ if KeyRight and xSpeed<0 {
 }
 
 //Movement update
-
-
-x += xSpeed
 y += ySpeed
 
 //Sprite
@@ -119,7 +115,7 @@ if(ySpeed != 0){
     }
 }
 
-if onWall != 0{
+if onWall != 0 and (keyLeft or KeyRight){
     sprite_index = sPlayerWallHold
     image_xscale = -sign(onWall)
 }
@@ -128,3 +124,7 @@ if death{
     sprite_index = sPlayerDeath
 }
 
+if y>window_get_height(){
+    death = true
+    alarm[0] = 50
+}
