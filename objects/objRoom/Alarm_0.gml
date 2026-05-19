@@ -1,1 +1,1 @@
-instance_create_depth(x,y,10,objEnemy)
+instance_create_depth(x,y-sprite_height/2,10,objEnemy)

@@ -45,15 +45,6 @@ for (var i = 0; i < array_length(menuBtn); i++) {
         menuBtn[index].image_blend = c_gray
         if KeySelectRel{
             switch (index) {   
-                case 0:
-                    //Start
-
-                    break 
-                
-                case 1:
-                    //Settings
-
-                    break 
                 case 2:
                     //Exit
                     
@@ -61,6 +52,32 @@ for (var i = 0; i < array_length(menuBtn); i++) {
                     index = 0
                     open = false
                     break 
+            }
+        }
+        if keyLeft{
+            switch (index) {   
+                case 0:
+                    //Exit
+                    menuBtn[index].volume -= 0.1
+                    break 
+                
+                case 1:
+                    //Exit
+                    menuBtn[index].volume -= 0.1
+                    break
+            }
+        }
+        if keyRight{
+            switch (index) {   
+                case 0:
+                    //Exit
+                    menuBtn[index].volume += 0.1
+                    break 
+                
+                case 1:
+                    //Exit
+                    menuBtn[index].volume += 0.1
+                    break
             }
         }
         

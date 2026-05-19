@@ -36,7 +36,8 @@ for (var i = 0; i < array_length(menuBtn); i++) {
             switch (index) {   
                 case 0:
                     //Start
-                    instance_create_layer(x,y,"Instances",objTransition)
+                    trans = instance_create_layer(x,y,"Instances",objTransition)
+                    trans.nextRoom = Room1
                     break 
                 
                 case 1:

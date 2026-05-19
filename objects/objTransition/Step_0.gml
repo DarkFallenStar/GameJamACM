@@ -5,7 +5,7 @@ switch(state){
         }
         else{
             if !setTimer{
-                alarm[0] = 10
+                alarm[0] = 20
                 setTimer = true
             }
             

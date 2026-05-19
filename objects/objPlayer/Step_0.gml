@@ -4,12 +4,21 @@ KeyRight = keyboard_check(ord("D")) or keyboard_check(vk_right)
 keyJumpPress = keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_up)
 keyJumpHold = keyboard_check(vk_space) or keyboard_check(vk_up)
 keyJumpLet = keyboard_check_released(vk_space) or keyboard_check_released(vk_up)
+keySprint = keyboard_check(vk_shift)
 
 //Movement calc
+
+if keySprint{
+    xSpeedLimit = 6
+}
+else{
+    xSpeedLimit = 4
+}
 moveDir = KeyRight-keyLeft
 if death{
     moveDir = 0
     xSpeed *= accel
+    keyJumpPress=false
     keyJumpLet = false
 }
 //Wall jump
@@ -73,7 +82,7 @@ if (place_meeting(x, y+ySpeed, allTiles))
 if (lockedMvt <= 0){
     image_index = 1
     if onWall != 0 and keyJumpPress and (keyLeft or KeyRight){
-        ySpeed -= jumpStr/1.2
+        ySpeed -= jumpStr/1.5
         lockedMvt = 15
         image_index = 2
         audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
@@ -96,6 +105,13 @@ if KeyRight and xSpeed<0 {
 
 //Movement update
 y += ySpeed
+
+
+
+if y>window_get_height(){
+    death = true
+    alarm[0] = 50
+}
 
 //Sprite
 if(xSpeed != 0){
@@ -122,9 +138,5 @@ if onWall != 0 and (keyLeft or KeyRight){
 
 if death{
     sprite_index = sPlayerDeath
-}
-
-if y>window_get_height(){
-    death = true
-    alarm[0] = 50
+    
 }

@@ -1,1 +1,4 @@
-instance_destroy(other)
+audio_play_sound(grabNewsSnd,2,0,1,0, 1)
+partSys = part_system_create(starPart)
+part_system_position(partSys, other.x, other.y)
+instance_deactivate_object(other)

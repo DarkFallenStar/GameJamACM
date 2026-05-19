@@ -1,0 +1,1 @@
+draw_sprite_ext(sBlackhole, 0, x,y,scale,scale,timer++,c_white,1)

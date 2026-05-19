@@ -3,7 +3,7 @@ sprW = sprite_get_width(spr)
 sprH = sprite_get_height(spr)
 
 xMax = room_width div sprW +1
-yMax = room_height div sprH +1
+yMax = room_height div sprH +2
 iMax = sprite_get_number(spr)
 
 col = c_black
@@ -16,3 +16,4 @@ enum states {
 }
 setTimer = false
 state = states.OUT
+nextRoom = noone
