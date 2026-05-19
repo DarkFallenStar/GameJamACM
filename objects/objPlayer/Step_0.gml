@@ -44,7 +44,7 @@ ySpeed += grav
 //Jump
 if (place_meeting(x, y+1, allTiles)) and (keyJumpHold) and !death{
     ySpeed -= jumpStr
-    audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
+    audio_play_sound(jumpSnd,4,0,1.3,0.35, random_range(0.8,1.2 ))
 }
 if keyJumpLet and ySpeed<0{
     ySpeed = 0
@@ -85,7 +85,7 @@ if (lockedMvt <= 0){
         ySpeed -= jumpStr/1.5
         lockedMvt = 15
         image_index = 2
-        audio_play_sound(jumpSnd,2,0,1.3,0.35, random_range(0.8,1.2 ))
+        audio_play_sound(jumpSnd,4,0,1.3,0.35, random_range(0.8,1.2 ))
     }
 }
 

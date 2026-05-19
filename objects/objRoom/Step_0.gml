@@ -1,7 +1,7 @@
 if !(audio_is_playing(transitionSnd)){
-    audio_sound_gain(lvlBGM1, 1)
-    if !audio_is_playing(lvlBGM1){
-        audio_play_sound(lvlBGM1,2,1,0.8)
+    audio_sound_gain(moonBGM, 1)
+    if !audio_is_playing(moonBGM){
+        audio_play_sound(moonBGM,2,1,0.8)
     }
 }
 

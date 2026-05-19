@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"objStartBtn",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":5,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"objRetry",
+  "eventList":[],
   "managed":true,
-  "name":"objStartBtn",
+  "name":"objRetry",
   "overriddenProperties":[],
   "parent":{
-    "name":"Menu",
-    "path":"folders/Objects/Menu.yy",
+    "name":"GameOverMenu",
+    "path":"folders/Objects/GameOverMenu.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sBtn",
-    "path":"sprites/sBtn/sBtn.yy",
+    "name":"sRetry",
+    "path":"sprites/sRetry/sRetry.yy",
   },
   "spriteMaskId":null,
   "visible":true,
